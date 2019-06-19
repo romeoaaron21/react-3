@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 import './App.css';
 
 import Header from './Header/Header';
 import Compose from './Compose/Compose';
+import Post from './Post/Post';
+
+axios.defaults.headers.common['Content-Type'] = 'application/json';
 
 class App extends Component {
   constructor() {
@@ -18,9 +22,30 @@ class App extends Component {
     this.createPost = this.createPost.bind(this);
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    axios
+      .get('http://localhost:9090/posts')
+      .then(res => {
+        this.setState({ posts: res.data });
+      });
+  }
 
-  updatePost() {}
+  updatePost(id, text) {
+    axios
+      .put(`http://localhost:9090/posts/${id}`, {text})
+      .then(res => {
+        const updatedPost = res.data;
+        const updatedPosts = this.state.posts.map(post => {
+          if (post.id === updatedPost.id) {
+            return { post, ...updatedPost };
+          } else {
+            return post;
+          }
+        });
+        this.setState({posts: updatedPosts})
+        console.log(`http://localhost:9090/posts/${id}`)
+      })
+  }
 
   deletePost() {}
 
@@ -28,6 +53,7 @@ class App extends Component {
 
   render() {
     const { posts } = this.state;
+    
 
     return (
       <div className="App__parent">
@@ -35,6 +61,14 @@ class App extends Component {
 
         <section className="App__content">
           <Compose />
+          {posts.map(data => (
+            <Post 
+            key={data.id} 
+            text={data.text} 
+            date={data.date} 
+            id={data.id} 
+            updatePostFn={this.updatePost}/>
+          ))}
         </section>
       </div>
     );

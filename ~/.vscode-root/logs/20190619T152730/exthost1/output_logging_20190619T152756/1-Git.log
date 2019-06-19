@@ -1,0 +1,80 @@
+Looking for git in: git
+Using git 2.17.1 from git
+> git rev-parse --show-toplevel
+> git config --get commit.template
+Open repository: /home/dev/Desktop/BoomCamp/react-3
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse submission
+> git rev-parse --symbolic-full-name submission@{u}
+fatal: no upstream configured for branch 'submission'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git show :src/components/App.js
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse submission
+> git rev-parse --symbolic-full-name submission@{u}
+fatal: no upstream configured for branch 'submission'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse submission
+> git rev-parse --symbolic-full-name submission@{u}
+fatal: no upstream configured for branch 'submission'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git check-ignore -v -z --stdin
+> git show :src/components/Post/Post.js
+> git show :src/components/App.js
+> git show :src/components/Post/Post.js
+> git show :src/components/App.js
+> git show :src/components/Post/Post.js
+> git show :src/components/App.js
+> git show :src/components/Post/Post.js
+> git check-ignore -v -z --stdin
+> git show :src/components/Post/Edit/Edit.js
+> git show :src/components/Post/Post.js
+> git show :src/components/App.js
+> git show :src/components/Post/Post.js
+> git show :src/components/Post/Edit/Edit.js
+> git show :src/components/App.js
+> git show :src/components/Post/Post.js
+> git show :src/components/Post/Edit/Edit.js
+> git show :src/components/Post/Post.js
+> git show :src/components/App.js
+> git show :src/components/Post/Post.js
+> git show :src/components/App.js
+> git show :src/components/Post/Post.js
+> git show :src/components/App.js
+> git show :src/components/Post/Post.js
+> git show :src/components/App.js
+> git show :src/components/Post/Edit/Edit.js
+> git show :src/components/Post/Post.js
+> git show :src/components/Post/Edit/Edit.js
+> git show :src/components/Post/Post.js
+> git show :src/components/Post/Edit/Edit.js
+> git show :src/components/App.js
+> git show :src/components/Post/Edit/Edit.js
+> git show :src/components/App.js
+> git show :src/components/Post/Edit/Edit.js
+> git show :src/components/App.js
+> git show :src/components/Post/Edit/Edit.js
+> git show :src/components/Post/Post.js
+> git show :src/components/App.js
+> git show :src/components/Post/Edit/Edit.js
+> git show :src/components/Post/Post.js
+> git show :src/components/App.js
+> git show :src/components/Post/Post.js
+> git show :src/components/App.js
+> git show :src/components/Post/Post.js
+> git show :src/components/App.js
+> git show :src/components/Post/Edit/Edit.js
+> git show :src/components/App.js
