@@ -43,13 +43,44 @@ class App extends Component {
           }
         });
         this.setState({posts: updatedPosts})
-        console.log(`http://localhost:9090/posts/${id}`)
       })
   }
 
-  deletePost() {}
+  deletePost(id) {
+    axios
+    .delete(`http://localhost:9090/posts/${id}`)
+    .then(res => {
+        this.setState({
+        posts: this.state.posts.filter(post => post.id !== id)
+      });
+    });
+  }
 
-  createPost() {}
+  createPost(text) {
+    const date = new Date().toLocaleString('en-US', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+    });
+
+    axios
+      .post(`http://localhost:9090/posts`, {text, date})
+      .then(res => {
+        this.setState({ posts: [res.data, ...this.state.posts] });
+      });
+  }
+
+  findPost(text) { 
+    if (text) {
+      axios.get(`https://practiceapi.devmountain.com/api/posts/filter?text=${text}`)
+        .then(response => {
+          this.setState({
+            posts: response.data
+          })
+        })
+    }
+  }
+
 
   render() {
     const { posts } = this.state;
@@ -57,18 +88,24 @@ class App extends Component {
 
     return (
       <div className="App__parent">
-        <Header />
+        <Header
+          findPost={this.findPost.bind(this)}
+        />
 
         <section className="App__content">
-          <Compose />
+          <Compose createPostFn={this.createPost} />
+
           {posts.map(data => (
             <Post 
             key={data.id} 
             text={data.text} 
             date={data.date} 
             id={data.id} 
-            updatePostFn={this.updatePost}/>
+            updatePostFn={this.updatePost}
+            deletePostFn={this.deletePost}
+            />
           ))}
+          
         </section>
       </div>
     );
